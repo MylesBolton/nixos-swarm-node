@@ -19,7 +19,7 @@
 
   boot.loader = {
     efi.canTouchEfiVariables = true;
-    systemd-boot.enable = true; 
+    systemd-boot.enable = true;
   };
 
   nixpkgs.config = {
@@ -52,7 +52,7 @@
     stateVersion = "21.11";
   };
 
-  time.timeZone = "America/Toronto";
+  time.timeZone = "Europe/London";
 
   virtualisation.docker = {
     enable = true;
