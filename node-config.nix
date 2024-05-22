@@ -1,13 +1,13 @@
 {
-    updateDay = "Sun";
-    hostname = "test-node-1";
-    customNameServers = ["192.168.2.1"];
-    networkInterface = "ensp1s0";
-    ipAddress = "192.168.122.75";
+    updateDay = "Sat";
+    hostname = "example-node";
+    customNameServers = ["10.0.0.0"];
+    networkInterface = "end0";
+    ipAddress = "10.0.0.0";
     ipPrefixLength = 24;
-    gateway = "192.168.122.1";
-    usernames = ["simon-boyer"]; #Github username
+    gateway = "10.0.0.0";
+    usernames = ["MylesBolton" "PhionSecurityAdmin"];
     cephVolumes = {
         configs = [ "/dev/vda2" ];
     };
-}   
+}
