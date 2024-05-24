@@ -45,7 +45,7 @@
 
   system = {
     autoUpgrade = {
-      channel= "https://nixos.org/channels/nixos-21.11";
+      channel= "https://nixos.org/channels/nixos-23.11";
       enable = true;
       allowReboot = true;
     };
