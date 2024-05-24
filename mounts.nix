@@ -18,7 +18,7 @@ with builtins;
                         fsType = "xfs";
                         };
                       }) devices
-                    ) glusterVolumes
+                    ) cephVolumes
             )
       )
       ++
@@ -32,7 +32,7 @@ with builtins;
                   options = [ "nofail" ];
                 };
             }
-          ) glusterVolumes
+          ) cephVolumes
         )
   );
 }

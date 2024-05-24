@@ -7,7 +7,7 @@
     ipPrefixLength = 24;
     gateway = "10.0.0.0";
     usernames = ["MylesBolton" "PhionSecurityAdmin"];
-    glusterVolumes = {
+    cephVolumes = {
         configs = [ "./test-dir" ];
     };
 }
