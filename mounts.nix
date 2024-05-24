@@ -34,5 +34,5 @@ with builtins;
             }
           ) glusterVolumes
         )
-  )
+  );
 }
