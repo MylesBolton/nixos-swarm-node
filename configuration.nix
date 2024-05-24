@@ -49,7 +49,7 @@
       enable = true;
       allowReboot = true;
     };
-    stateVersion = "21.11";
+    stateVersion = "23.11";
   };
 
   time.timeZone = "Europe/London";
