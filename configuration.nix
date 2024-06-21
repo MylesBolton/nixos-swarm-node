@@ -3,14 +3,12 @@
 {
 
   imports = [
-    # Add hardware scan configuration.
-    ./hardware-configuration.nix
+    #Add hardware config
+    "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/raspberry-pi/4"
     # Add environment settings.
     ./environment.nix
     # Add packages.
     ./packages.nix
-    # Add glusetrfs
-    ./glusterfs.nix
     # Add mounts
     ./mounts.nix
     # Add users
@@ -27,33 +25,21 @@
     };
   };
 
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/NIXOS_SD";
-      fsType = "ext4";
-      options = [ "noatime" ];
-    };
-  };
-
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
-
   security.sudo = {
     enable = true;
     wheelNeedsPassword = false;
   };
 
   services = {
-    journald = {
-      extraConfig = ''
-        SystemMaxUse=50M
-      '';
-    };
     openssh = {
         enable = true;
-        settings.PasswordAuthentication = false;
+        settings = {
+          PasswordAuthentication = false;
+          KbdInteractiveAuthentication = false;
+        };
     };
+    tailscale.enable = true;
+    k3s.enable = true;
   };
 
   system = {
@@ -65,10 +51,6 @@
     stateVersion = "23.11";
   };
 
+  hardware.enableRedistributableFirmware = true;
   time.timeZone = "Europe/London";
-
-  virtualisation.docker = {
-    enable = true;
-    liveRestore = false;
-  };
 }

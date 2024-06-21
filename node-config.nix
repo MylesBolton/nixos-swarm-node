@@ -1,13 +1,12 @@
 {
-    updateDay = "Sat";
+    update-day = "Sat";
     hostname = "example-node";
-    customNameServers = ["10.0.0.0"];
-    networkInterface = "end0";
-    ipAddress = "10.0.0.0";
-    ipPrefixLength = 24;
+    name-servers = ["10.0.0.0"];
+    network-interface = "end0";
+    ip-address = "10.0.0.0";
+    ip-prefix = 24;
     gateway = "10.0.0.0";
-    usernames = ["MylesBolton" "PhionSecurityAdmin"];
-    cephVolumes = {
-        configs = [ "./test-dir" ];
-    };
+    usernames = "MylesBolton";
+    tcp-ports = ["22"];
+    udp-ports = [""];
 }

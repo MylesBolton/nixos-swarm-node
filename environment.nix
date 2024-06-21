@@ -1,13 +1,12 @@
 { config, ... }:
 
 with (import ./node-config.nix);
-# Actual configuration, no need to edit
 {
-    system.autoUpgrade.dates = "${updateDay} *-*-* 00:00:00";
+    system.autoUpgrade.dates = "${updateDay} *-*-* 04:00:00";
 
     networking = {
         hostName = hostname;
-        nameservers = customNameServers ++ [
+        nameservers = name-servers ++ [
         "1.1.1.1"
         "1.0.0.1"
         ];
@@ -16,8 +15,8 @@ with (import ./node-config.nix);
                 ipv4 = {
                     addresses = [
                         {
-                        address = ipAddress;
-                        prefixLength = ipPrefixLength;
+                        address = ip-address;
+                        prefixLength = ip-prefix;
                         }
                     ];
                 };
@@ -25,8 +24,12 @@ with (import ./node-config.nix);
         };
         defaultGateway = {
             address = gateway;
-            interface = networkInterface;
+            interface = network-interface;
         };
-        firewall.enable = false;
+        firewall{
+            enable = true;
+            allowedTCPPorts = tcp-ports;
+            allowedUDPPorts = udp-ports;
+        }
   };
 }

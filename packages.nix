@@ -2,11 +2,13 @@
 
 {
     environment.systemPackages = with pkgs; [
-        glusterfs
+        git
         neovim
         wget
         curl
-        docker-compose
-        git
+        k3s
+        gnupg
+        nano
+        tailscale
     ];
 }
